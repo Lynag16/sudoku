@@ -34,8 +34,7 @@ podman-compose up --build
 
 
 
-# “When life gives you arrays... fill them with 1–9.”
-
+“When life gives you arrays... fill them with 1–9.”
 
 
 ## ☕ Support
