@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sudoku Game</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>🧩 Easy Sudoku Game</h1>
+
+  <table>
+    {% for i in range(9) %}
+    <tr>
+      {% for j in range(9) %}
+      <td>
+        {% if board[i][j] == 0 %}
+        <form action="/move" method="post">
+          <input type="hidden" name="row" value="{{ i }}">
+          <input type="hidden" name="col" value="{{ j }}">
+          <input name="val" maxlength="1" size="1" pattern="[1-9]" required>
+        </form>
+        {% else %}
+        <strong>{{ board[i][j] }}</strong>
+        {% endif %}
+      </td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </table>
+
+  <div class="buttons">
+    <a href="/solve">Show Solution</a>
+    <a href="/reset">New Game</a>
+  </div>
+</body>
+</html>
